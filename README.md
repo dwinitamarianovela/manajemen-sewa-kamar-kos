@@ -1,5 +1,11 @@
 # MANAJEMEN SEWA KAMAR KOS
-kelompok 2
+Kelompok 2:
+-Alfarabi Rasebdriya (26071100444)
+-Dwinita Maria Novela (26071102777)
+-Irfan Islami Parsa (26071100299)
+-Nadira Syafiyah Hasibuan (26071102880)
+-Rizky Dwi Putra (26071103137)
+
 Tujuan Aplikasi : Membuat aplikasi konsol berbasis C untuk mengelola data sewa dan keterisian kamar kos secara efisien.
 
 Syarat dan Ketentuan :

@@ -9,7 +9,7 @@ Syarat dan Ketentuan :
 4. Terdapat Array dan Struct untuk penyimpanan data kamar
 5. Percabangan lengkap (if-else dan switch-case)
 6. Looping lengkap (for, while, do-while)
-7. Tidak menggunakan fungsi/library bawaan C++ berlebihan (pure logika dasar)
+7. Tidak menggunakan fungsi/library bawaan C berlebihan (pure logika dasar)
 
 Fitur :
 1. Menambahkan penghuni kamar baru

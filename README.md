@@ -43,7 +43,7 @@ Fitur :
 5. Menghitung total estimasi pendapatan
    - Menghitung total rekap penerimaan sewa dari seluruh kamar yang status pembayarannya sudah lunas
 
-6. Keluar dari aplikasi
+6.Keluar dari aplikasi
 
 
 

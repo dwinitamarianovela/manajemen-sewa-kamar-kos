@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "model.h"
-#include "file_manager.h"
 #include "kamar.h"
 #include "penghuni.h"
 #include "transaksi.h"
@@ -10,9 +9,9 @@ int main() {
     Penghuni daftarPenghuni[MAX_DATA];
     Transaksi daftarTransaksi[MAX_DATA];
 
-    int jmlKamar = loadKamar(daftarKamar);
-    int jmlPenghuni = loadPenghuni(daftarPenghuni);
-    int jmlTransaksi = loadTransaksi(daftarTransaksi);
+    int jmlKamar = 0;
+    int jmlPenghuni = 0;
+    int jmlTransaksi = 0;
     int pilihan;
 
     // MATERI UTAMA: Perulangan do-while
@@ -37,10 +36,7 @@ int main() {
         else if (pilihan == 6) tampilkanTransaksi(daftarTransaksi, jmlTransaksi);
         else if (pilihan == 7) tambahTransaksi(daftarTransaksi, &jmlTransaksi);
         else if (pilihan == 0) {
-            saveKamar(daftarKamar, jmlKamar);
-            savePenghuni(daftarPenghuni, jmlPenghuni);
-            saveTransaksi(daftarTransaksi, jmlTransaksi);
-            printf("Data tersimpan. Sampai jumpa!\n");
+            printf("Terima kasih. Sampai jumpa!\n");
         }
     } while (pilihan != 0);
 

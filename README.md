@@ -29,13 +29,11 @@ manajemen-sewa-kamar-kos/
 │   └── transaksi.txt       # Data pembayaran (IDTrx;IDPenghuni;Kamar;Bulan;Nominal;Status)
 ├── include/                # Header files (.h) untuk deklarasi struct & prototipe fungsi
 │   ├── model.h             # Definisi struct (Kamar, Penghuni, Transaksi) & konstanta
-│   ├── file_manager.h      # Deklarasi operasi baca/tulis file
 │   ├── kamar.h             # Deklarasi modul manajemen kamar
 │   ├── penghuni.h          # Deklarasi modul manajemen penghuni
 │   ├── transaksi.h         # Deklarasi modul transaksi & laporan keuangan
 ├── src/                    # Source files (.c) berisi implementasi logika program
 │   ├── main.c              # Titik masuk program & navigasi menu utama
-│   ├── file_manager.c      # Implementasi penyimpanan & pembacaan file (fopen/fscanf/fprintf)
 │   ├── kamar.c             # Implementasi fitur kamar
 │   ├── penghuni.c          # Implementasi fitur penghuni
 │   ├── transaksi.c         # Implementasi perhitungan tagihan & diskon

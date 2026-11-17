@@ -45,47 +45,6 @@ manajemen-sewa-kamar-kos/
 └── README.md               # Dokumentasi proyek
 ```
 
----
-
-## 🧠 Konsep Pemrograman C yang Diterapkan
-
-| Konsep Materi | Implementasi dalam Kode | Lokasi File |
-| :--- | :--- | :--- |
-| **Array & Struct** | Penggunaan *Array of Struct* (`Kamar[]`, `Penghuni[]`, `Transaksi[]`) berkapasitas `MAX_DATA` (100) untuk menampung data di memori. | `include/model.h`, `src/main.c` |
-| **Pemrograman Modular** | Pemisahan antara file deklarasi/antarmuka (`.h` di folder `include/`) dan file implementasi (`.c` di folder `src/`). | Seluruh folder `include/` & `src/` |
-| **Fungsi (*Return Value*)** | Fungsi yang mengembalikan nilai, seperti `cariIndeksKamar()`, `hitungTotalPemasukan()`, dan `inputAngkaValid()`. | `src/kamar.c`, `src/transaksi.c`, `src/utils.c` |
-| **Prosedur (`void`)** | Sub-program tanpa nilai balik untuk menampilkan tabel dan memodifikasi data, seperti `tampilkanKamar()` dan `tambahPenghuni()`. | `src/kamar.c`, `src/penghuni.c` |
-| **Percabangan (`if - else if - else`)** | Validasi ketersediaan kamar, pengecekan menu utama, serta perhitungan diskon sewa (10% untuk 12 bulan, 5% untuk $\ge$ 6 bulan). | `src/main.c`, `src/transaksi.c` |
-| **Perulangan `do-while`** | Digunakan pada menu utama agar program berjalan minimal satu kali dan terus berulang hingga pengguna memilih `0` (Keluar). | `src/main.c` |
-| **Perulangan `for`** | Digunakan untuk menelusuri seluruh elemen array saat menampilkan tabel data, mencari ID/nomor kamar, dan menggeser elemen array saat hapus data. | `src/kamar.c`, `src/penghuni.c` |
-| **Perulangan `while`** | Digunakan untuk membaca baris demi baris isi file `.txt` hingga akhir file (`EOF`) serta memvalidasi input angka pengguna. | `src/file_manager.c`, `src/utils.c` |
-
----
-
-## 🔄 Alur Kerja Program (*Flowchart*)
-
-```mermaid
-flowchart TD
-    Start([Mulai Program]) --> Load[Load Data dari folder data/ ke Array]
-    Load --> Menu[/Tampilkan Menu Utama 0-8/]
-    Menu --> Input[/Input Pilihan Menu/]
-    Input --> Cek{Pilihan Menu?}
-    
-    Cek -- "1 & 2" --> ModKamar[Modul Kamar: Tampil / Tambah Kamar]
-    Cek -- "3, 4 & 5" --> ModPenghuni[Modul Penghuni: Tampil / Check-In / Check-Out]
-    Cek -- "6, 7 & 8" --> ModTrx[Modul Transaksi: Laporan / Tagihan / Pelunasan]
-    Cek -- "0" --> SaveExit[Simpan Semua Array ke File .txt]
-    
-    ModKamar --> AutoSave[Simpan Perubahan ke File .txt]
-    ModPenghuni --> AutoSave
-    ModTrx --> AutoSave
-    AutoSave --> Menu
-    
-    SaveExit --> End([Program Selesai])
-```
-
----
-
 ## ⚙️ Cara Compile dan Menjalankan Program
 
 ### 1. Prasyarat

@@ -3,11 +3,11 @@
 Aplikasi berbasis konsol (*Command Line Interface*) yang dibangun menggunakan **Bahasa C** dengan pendekatan **Pemrograman Modular** untuk membantu pengelolaan operasional rumah kos secara efisien, terstruktur, dan tersimpan secara permanen.
 
 ## 👥 Anggota Kelompok 2
-* **Alfarabi Rasebdriya**
-* **Dwinita Maria Novela**
-* **Irfan Islami Parsa**
-* **Nadira Syafiyah Hasibuan**
-* **Rizky Dwi Putra**
+* **Alfarabi Rasebdriya         (26071100444)**
+* **Dwinita Maria Novela        (26071102777)**
+* **Irfan Islami Parsa          (26071100299)**
+* **Nadira Syafiyah Hasibuan    (26071102880)**
+* **Rizky Dwi Putra             (26071103137)**
 
 ---
 

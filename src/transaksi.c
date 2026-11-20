@@ -1,36 +1,52 @@
 #include <stdio.h>
 #include "transaksi.h"
 
-void tampilkanTransaksi(Transaksi list[], int jumlah) {
+void tampilkanTransaksi(Transaksi list[], int jumlah)
+{
     printf("\n--- RIWAYAT TRANSAKSI ---\n");
-    for (int i = 0; i < jumlah; i++) {
-        printf("%s | Penghuni: %s | Kamar %d | %d Bulan | Total: Rp%d\n",
+    for (int i = 0; i < jumlah; i++)
+    {
+        // [PERBAIKAN] Argumen list[i].bulan disesuaikan dengan posisi %d Bulan
+        printf("%s | Penghuni: %s | Kamar %d | %d Bulan | Total: Rp%d | Status: %s\n",
                list[i].id, list[i].idPenghuni, list[i].nomorKamar,
-               list[i].status, list[i].jumlah);
+               list[i].bulan, list[i].jumlah,
+               list[i].status == 1 ? "Lunas" : "Belum Lunas");
     }
 }
 
-void tambahTransaksi(Transaksi listT[], int *jmlT) {
+void tambahTransaksi(Transaksi listT[], int *jmlT)
+{
     int harga, bulan;
-    printf("ID Transaksi  : "); scanf("%s", listT[*jmlT].id);
-    printf("ID Penghuni   : "); scanf("%s", listT[*jmlT].idPenghuni);
-    printf("Nomor Kamar   : "); scanf("%d", &listT[*jmlT].nomorKamar);
-    printf("Harga/Bulan   : "); scanf("%d", &harga);
-    printf("Lama Sewa(bln): "); scanf("%d", &bulan);
+    printf("ID Transaksi    : ");
+    scanf("%14s", listT[*jmlT].id);
+    printf("ID Penghuni     : ");
+    scanf("%14s", listT[*jmlT].idPenghuni);
+    printf("Nomor Kamar     : ");
+    scanf("%d", &listT[*jmlT].nomorKamar);
+    printf("Harga/Bulan     : ");
+    scanf("%d", &harga);
+    printf("Lama Sewa (bln) : ");
+    scanf("%d", &bulan);
 
     int total = harga * bulan;
 
-    // MATERI UTAMA: Percabangan if - else if - else
-    if (bulan >= 12) {
+    if (bulan >= 12)
+    {
         total = total * 90 / 100; // Diskon 10%
         printf("[i] Dapat diskon 10%%!\n");
-    } else if (bulan >= 6) {
+    }
+    else if (bulan >= 6)
+    {
         total = total * 95 / 100; // Diskon 5%
         printf("[i] Dapat diskon 5%%!\n");
-    } else {
+    }
+    else
+    {
         printf("[i] Harga normal.\n");
     }
 
+    // [PERBAIKAN] Simpan jumlah bulan ke dalam struct
+    listT[*jmlT].bulan = bulan;
     listT[*jmlT].jumlah = total;
     listT[*jmlT].status = 1; // Lunas
     (*jmlT)++;

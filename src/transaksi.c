@@ -51,4 +51,22 @@ void tambahTransaksi(Transaksi listT[], int *jmlT)
     listT[*jmlT].status = 1; // Lunas
     (*jmlT)++;
     printf("[+] Total bayar: Rp%d\n", total);
+    cetakStruk(listT[*jmlT - 1]); 
+}
+    void cetakStruk(Transaksi t)
+    {
+
+    printf("\n==========================================\n");
+    printf("         KWITANSI PEMBAYARAN KOS          \n");
+    printf("==========================================\n");
+    printf("ID Transaksi   : %s\n", t.id);
+    printf("ID Penghuni    : %s\n", t.idPenghuni);
+    printf("Nomor Kamar    : %d\n", t.nomorKamar);
+    printf("Durasi Sewa    : %d Bulan\n", t.bulan);
+    printf("------------------------------------------\n");
+    printf("Total Bayar    : Rp %d\n", t.jumlah);
+    printf("Status         : %s\n", t.status == 1 ? "LUNAS" : "BELUM LUNAS");
+    printf("==========================================\n");
+    printf("  Terima kasih telah melakukan pembayaran \n");
+    printf("==========================================\n\n");
 }

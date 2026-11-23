@@ -5,5 +5,6 @@
 
 void tampilkanTransaksi(Transaksi list[], int jumlah);
 void tambahTransaksi(Transaksi listT[], int *jmlT);
+void cetakStruk (Transaksi t);
 
 #endif

@@ -1,3 +1,6 @@
+// header untuk fitur transaksi dan cetak struk pembayaran
+// oleh: Nadira Syafiyah Hasibuan
+
 #ifndef TRANSAKSI_H
 #define TRANSAKSI_H
 

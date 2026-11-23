@@ -1,12 +1,16 @@
+//Implementasi fitur riwayat transaksi, hitung diskon sewa dan cetak struk
+//Dikerjakan oleh: Nadira Syafiyah Hasibuan
+
 #include <stdio.h>
 #include "transaksi.h"
 
+//menampilkan semua data transaksi yang sudah masuk
 void tampilkanTransaksi(Transaksi list[], int jumlah)
 {
     printf("\n--- RIWAYAT TRANSAKSI ---\n");
     for (int i = 0; i < jumlah; i++)
     {
-        // [PERBAIKAN] Argumen list[i].bulan disesuaikan dengan posisi %d Bulan
+        //mengecek status, kalau 1 berarti lunas, selain itu belum lunas
         printf("%s | Penghuni: %s | Kamar %d | %d Bulan | Total: Rp%d | Status: %s\n",
                list[i].id, list[i].idPenghuni, list[i].nomorKamar,
                list[i].bulan, list[i].jumlah,
@@ -14,6 +18,7 @@ void tampilkanTransaksi(Transaksi list[], int jumlah)
     }
 }
 
+//input transaksi baru kemudian menghitung diskon berdasar lama nya sewa
 void tambahTransaksi(Transaksi listT[], int *jmlT)
 {
     int harga, bulan;
@@ -30,6 +35,7 @@ void tambahTransaksi(Transaksi listT[], int *jmlT)
 
     int total = harga * bulan;
 
+//cek syarat diskon, apabila >= 12 bulan diskon 10% dan >=6 bulan diskon 5%
     if (bulan >= 12)
     {
         total = total * 90 / 100; // Diskon 10%
@@ -45,14 +51,16 @@ void tambahTransaksi(Transaksi listT[], int *jmlT)
         printf("[i] Harga normal.\n");
     }
 
-    // [PERBAIKAN] Simpan jumlah bulan ke dalam struct
+    // menyimpan data ke array transaksi dan set status jadi 1=lunas
     listT[*jmlT].bulan = bulan;
     listT[*jmlT].jumlah = total;
     listT[*jmlT].status = 1; // Lunas
     (*jmlT)++;
     printf("[+] Total bayar: Rp%d\n", total);
+    //cetak struk dari data yang baru saja diinput
     cetakStruk(listT[*jmlT - 1]); 
 }
+   // cetak tampilan struk pembayaran ke layar
     void cetakStruk(Transaksi t)
     {
 

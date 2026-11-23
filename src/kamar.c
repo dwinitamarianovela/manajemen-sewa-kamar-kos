@@ -52,11 +52,8 @@ void tambahKamar(Kamar list[], int *jumlah)
     // Baca tipe kamar, termasuk spasi, sampai pengguna menekan Enter.
     printf("Tipe Kamar   : ");
     scanf(" %49[^\n]", list[*jumlah].tipe);
-<<<<<<< HEAD
-=======
 
     // Minta harga sewa kamar.
->>>>>>> aafb045f29928d00e7107a9e703df587a93d292e
     printf("Harga Sewa  : ");
     scanf("%d", &list[*jumlah].harga);
 

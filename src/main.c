@@ -5,41 +5,47 @@
 #include "penghuni.h"
 #include "transaksi.h"
 
+// Membaca data dari file .txt (kamar, penghuni, transaksi) ke array di memori saat program dimulai
 void muatData(Kamar k[], int *jk, Penghuni p[], int *jp, Transaksi t[], int *jt)
 {
+    // Buka file data/kamar.txt dalam mode baca ("r") dan parse tiap baris berformat dipisah ';'
     FILE *fk = fopen("data/kamar.txt", "r");
     if (fk)
     {
         while (fscanf(fk, "%d;%49[^;];%d;%d\n", &k[*jk].nomor, k[*jk].tipe, &k[*jk].harga, &k[*jk].status) == 4)
         {
-            (*jk)++;
+            (*jk)++; // Tambah jumlah data kamar yang berhasil dimuat
         }
         fclose(fk);
     }
 
+    // Buka file data/penghuni.txt dalam mode baca ("r") dan muat data penghuni ke array
     FILE *fp = fopen("data/penghuni.txt", "r");
     if (fp)
     {
         while (fscanf(fp, "%14[^;];%59[^;];%19[^;];%d;%19[^\n]\n", p[*jp].id, p[*jp].nama, p[*jp].noHp, &p[*jp].nomorKamar, p[*jp].tglMasuk) == 5)
         {
-            (*jp)++;
+            (*jp)++; // Tambah jumlah data penghuni yang berhasil dimuat
         }
         fclose(fp);
     }
 
+    // Buka file data/transaksi.txt dalam mode baca ("r") dan muat data transaksi ke array
     FILE *ft = fopen("data/transaksi.txt", "r");
     if (ft)
     {
         while (fscanf(ft, "%14[^;];%14[^;];%d;%d;%d;%d\n", t[*jt].id, t[*jt].idPenghuni, &t[*jt].nomorKamar, &t[*jt].bulan, &t[*jt].jumlah, &t[*jt].status) == 6)
         {
-            (*jt)++;
+            (*jt)++; // Tambah jumlah data transaksi yang berhasil dimuat
         }
         fclose(ft);
     }
 }
 
+// Menulis ulang seluruh data dari memori ke file .txt agar perubahan tersimpan permanen
 void simpanData(Kamar k[], int jk, Penghuni p[], int jp, Transaksi t[], int jt)
 {
+    // Timpa/tulis ulang data kamar ke data/kamar.txt dengan pemisah ';'
     FILE *fk = fopen("data/kamar.txt", "w");
     if (fk)
     {
@@ -48,6 +54,7 @@ void simpanData(Kamar k[], int jk, Penghuni p[], int jp, Transaksi t[], int jt)
         fclose(fk);
     }
 
+    // Timpa/tulis ulang data penghuni ke data/penghuni.txt dengan pemisah ';'
     FILE *fp = fopen("data/penghuni.txt", "w");
     if (fp)
     {
@@ -56,6 +63,7 @@ void simpanData(Kamar k[], int jk, Penghuni p[], int jp, Transaksi t[], int jt)
         fclose(fp);
     }
 
+    // Timpa/tulis ulang data transaksi ke data/transaksi.txt dengan pemisah ';'
     FILE *ft = fopen("data/transaksi.txt", "w");
     if (ft)
     {
@@ -73,6 +81,7 @@ int main()
         return 0; // Berhenti jika gagal login 3x
     }
 
+    // Inisialisasi array penampung data dan penghitung jumlah data aktif
     Kamar daftarKamar[MAX_DATA];
     Penghuni daftarPenghuni[MAX_DATA];
     Transaksi daftarTransaksi[MAX_DATA];
@@ -83,6 +92,7 @@ int main()
     // 2. Muat data dari file .txt saat program baru mulai
     muatData(daftarKamar, &jmlKamar, daftarPenghuni, &jmlPenghuni, daftarTransaksi, &jmlTransaksi);
 
+    // Loop utama menu aplikasi; terus berjalan sampai pengguna memilih 0 (Simpan & Keluar)
     do
     {
         printf("\n=== SISTEM MANAJEMEN KOS ===\n");
@@ -97,6 +107,7 @@ int main()
         printf("Pilih: ");
         scanf("%d", &pilihan);
 
+        // Arahkan pilihan pengguna ke fungsi modul terkait
         if (pilihan == 1)
             tampilkanKamar(daftarKamar, jmlKamar);
         else if (pilihan == 2)

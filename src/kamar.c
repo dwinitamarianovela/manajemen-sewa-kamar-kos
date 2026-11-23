@@ -29,7 +29,7 @@ void tambahKamar(Kamar list[], int *jumlah)
     printf("Nomor Kamar : ");
     scanf("%d", &list[*jumlah].nomor);
     printf("Tipe Kamar   : ");
-    scanf(" %49[^\n]", listK[*jmlK].tipe);
+    scanf(" %49[^\n]", list[*jumlah].tipe);
     printf("Harga Sewa  : ");
     scanf("%d", &list[*jumlah].harga);
     list[*jumlah].status = 0;
